@@ -1,5 +1,0 @@
-ID Outlook Temperature Humidity Windy Class
-11 Sunny Mild Normal True P
-12 Overcast Mild High True P
-13 Overcast Hot Normal False P
-14 Rain Mild High True N

@@ -45,11 +45,18 @@ func (dt DecisionTree) Init(maxDepthInput int) *Node {
 	n = len(dt.Students.Studs[0].Attributes)
 	rand.Seed(time.Now().UnixNano())
 	selectedAttrs = selectAttributes(0, n, int(math.Sqrt(float64(n))))
-	fmt.Println(selectedAttrs)
 	maxDepth = maxDepthInput
 	dt.root = NewNode()
 	dt.root.children = buildNode(dt.Students, dt.root, 0)
 	return dt.root
+}
+
+func (dt DecisionTree) PrintSelected() {
+	fmt.Println("Выбранные аттрибуты:")
+	for _, val := range selectedAttrs {
+		fmt.Print(dt.Header.AttributesNames[val], " ")
+	}
+	fmt.Println()
 }
 
 func buildNode(students dataWorker.Students, parent *Node, depth int) (children map[string]*Node) {

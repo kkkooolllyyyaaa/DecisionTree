@@ -16,7 +16,7 @@ func main() {
 	}
 
 	dt := decisionTree.DecisionTree{Header: headerTrain, Students: dataWorker.Students{Studs: studsTrain}}
-	root := dt.Init(30)
+	root := dt.Init(40)
 
 	studsTest, _, _ := dataWorker.Parse("resources/data_test.txt", ";")
 	rows := float64(len(studsTest))
@@ -51,6 +51,7 @@ func main() {
 		err.Error()
 	}
 
+	dt.PrintSelected()
 	fmt.Println("Accuracy:", p/rows)
 	fmt.Println("Precision:", tp/(tp+fp))
 	fmt.Println("Recall:", tp/(tp+fn))
